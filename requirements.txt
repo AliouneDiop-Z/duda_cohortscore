@@ -1,0 +1,24 @@
+# Framework web
+streamlit>=1.45.0
+
+# Manipulation de données
+pandas>=2.3.0
+numpy>=2.3.0
+
+# Visualisation
+matplotlib>=3.10.0
+seaborn>=0.13.0
+plotly>=6.1.0
+
+# Word cloud
+wordcloud>=1.9.4
+Pillow>=11.0.0
+
+# API Kaggle
+kaggle>=1.7.4
+
+# Machine learning (scaler, clustering)
+scikit-learn>=1.7.0
+
+# Chargement depuis Google Drive
+gdown>=4.7.1
