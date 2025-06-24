@@ -1,4 +1,4 @@
-````markdown
+```markdown
 # DUDA CohortScore v1
 
 Le **DUDA CohortScore** est le MVP d'une Webapp Streamlit d'analyse de cohortes, réalisé pour le DU Sorbonne Data Analytics 2024-2025 par **Alexandre Cameron BORGES** & **Alioune DIOP**. L'outil segmente la clientèle Instacart via l'analyse RFM (Récence, Fréquence, Montant), explore les habitudes d'achat et génère un WordCloud à partir d'un texte importé.
