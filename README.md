@@ -1,75 +1,39 @@
-# duda_cohortscore
-UDA CohortScore v1
-Le DUDA CohortScore est le MVP d'une Webapp Streamlit d'analyse de cohortes, réalisé pour le DU Sorbonne Data Analytics 2024-2025 par Alexandre Cameron BORGES & Alioune DIOP. L'outil segmente la clientèle Instacart via l'analyse RFM (Récence, Fréquence, Montant), explore les habitudes d'achat et génère un WordCloud à partir d'un texte importé.
+````markdown
+# DUDA CohortScore v1
 
-Dépôt GitHub Python
+Le **DUDA CohortScore** est le MVP d'une Webapp Streamlit d'analyse de cohortes, réalisé pour le DU Sorbonne Data Analytics 2024-2025 par **Alexandre Cameron BORGES** & **Alioune DIOP**. L'outil segmente la clientèle Instacart via l'analyse RFM (Récence, Fréquence, Montant), explore les habitudes d'achat et génère un WordCloud à partir d'un texte importé.
 
-· 1️⃣ ✨ Objectif
-Segmenter les clients selon le modèle RFM.
-Visualiser les tendances d'achat (top produits, heatmaps temporelles).
-Explorer dynamiquement via des filtres (jour, heure, rayon, cluster).
-Générer un WordCloud à partir d'un fichier texte lié au e-commerce.
-· 2️⃣ 🚀 Démo rapide
-Ouvrez la WebApp hébergée → https://acb-dudacohortscore.streamlit.app/
+## 📋 Table des matières
+1. [Objectif](#-objectifs)
+2. [Démo rapide](#-d%C3%A9mo-rapide)
+3. [Jeux de données](#-jeux-de-donn%C3%A9es)
+4. [Méthodologie](#-m%C3%A9thodologie)
+5. [Architecture de l'application](#-architecture-de-lapplication)
+6. [Installation & Exécution](#-installation--ex%C3%A9cution)
+7. [Auteurs](#-auteurs)
 
-ou
+## ✨ Objectifs
+- Segmenter les clients selon le modèle RFM (Récence, Fréquence, Montant).
+- Visualiser les tendances d'achat : top produits, heatmaps temporelles.
+- Explorer dynamiquement via des filtres : jour, heure, rayon, cluster.
+- Générer un WordCloud à partir d'un fichier texte lié au e-commerce.
 
-Cloner le dépôt et installer les dépendances (cf. §6).
+## 🚀 Démo rapide
+### WebApp hébergée
+Visitez la démo en ligne :
+> https://acb-dudacohortscore.streamlit.app/
 
-Lancer l'application :
-
-streamlit run app.py
-Dans l'interface :
-
-Sélectionner le fichierdata/instacart_sample_1m.parquet
-Appliquer des filtres (jour, heure, rayon, cluster)
-Explorer les graphiques (bar charts, heatmap, pairplot, vue 3D)
-Charger un texte pour générer un WordCloud
-· 3️⃣ 📊 Jeux de données
-Tableau	Lignes	Description
-instacart_sample_1m.parquet	1 000 000	Cet échantillon de jeu de données provient d'Instacart, une plateforme américaine de livraison d'épicerie en ligne. L'original contient des informations anonymisées sur plus de 3 millions de commandes passées par plus de 200 000 utilisateurs Instacart en 2017.
-Contenu principal : Le jeu de données comprend plusieurs fichiers CSV interconnectés :
-
-Commandes : Informations sur chaque commande (ID utilisateur, jour de la semaine, heure, délai depuis la dernière commande)
-Produits : Catalogue de ~50 000 produits avec leurs noms et rayons
-Allées : Les 134 rayons du magasin (ex : « légumes frais », « fromages emballés »)
-Départements : Les 21 départements (ex : "œufs laitiers", "boissons")
-Order_products : Détails des produits dans chaque commande avec l'ordre d'ajout au panier
-Source : Kaggle – Analyse du panier d'épicerie en ligne Instacart
-
-· 4️⃣ 🧠 Méthodologie
-EDA & nettoyage ( data_and_finetuning_cohort.py) :
-
-Détection et traitement des NaN, doublons, typage.
-Création de variables :
-
-order_dow_name(jour de la semaine), totaux par client, indicateurs RFM.
-Regroupement RFM :
-
-Standardisation, méthode du coude, KMeans.
-Visualisations (10 graphiques) :
-
-Graphiques à barres, carte thermique, pairplot, vue 3D.
-Exploration de texte :
-
-Nettoyage, tokenisation, suppression de mots vides, génération de WordCloud.
-· 5️⃣ 🏗️ Architecture de l'application
-duda_cohortscore/
-├── app.py                          # Application Streamlit
-├── data_and_finetuning_cohort.py  # EDA, nettoyage & création de variables
-├── requirements.txt                # Dépendances Python
-├── data/
-│   ├── [instacart_sample_1m.parquet](https://drive.google.com/file/d/1znbv-o5XfyWLc_5IcnHosrDdgH8JafDp/view?usp=drive_link) # Échantillon de travail
-│   └── [instacart_cleaned.csv](https://drive.google.com/file/d/1pRjgJ3X8CXfcaApv_W-QfZiWTHO71HlS/view?usp=drive_link)       # Jeu nettoyé final
-└── README.md                       # Ce document
-· 6️⃣ ⚙️ Paramètres régionaux d'installation
-# 1. Cloner le repo
+### Exécution locale
+```bash
+# 1. Cloner le dépôt et se positionner dans le dossier
 git clone https://github.com/alexandre-cameron-borges/duda_cohortscore.git
 cd duda_cohortscore
 
-# 2. Créer et activer l’environnement
-python -m venv .venv && source .venv/bin/activate  # macOS/Linux
-# venv\Scripts\activate                            # Windows
+# 2. Créer et activer l’environnement virtuel
+# macOS/Linux
+env python -m venv .venv && source .venv/bin/activate
+# Windows
+venv\\Scripts\\activate
 
 # 3. Installer les dépendances
 pip install --upgrade pip
@@ -77,8 +41,69 @@ pip install -r requirements.txt
 
 # 4. Lancer l’application
 streamlit run app.py
-Note : l'application s'attend à trouver data/instacart_sample_1m.parquet. Ajustez le chemin dans app.pysi nécessaire.
+````
 
-· 7️⃣ 🙋 Auteurs
-Alexandre Cameron BORGES – LinkedIn
-Alioune DIOP
+> **Note** : L'application s'attend à trouver `data/instacart_sample_1m.parquet`. Ajustez le chemin dans `app.py` si nécessaire.
+
+## 📊 Jeux de données
+
+| Fichier                       | Lignes    | Description                                                                                                  |
+| ----------------------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `instacart_sample_1m.parquet` | 1 000 000 | Échantillon de commandes Instacart (2017) : utilisateurs, produits, rayons, départements, détails de panier. |
+
+**Structure des données** :
+
+* **Orders** : détails de chaque commande (ID utilisateur, jour de la semaine, heure, délai depuis la dernière commande).
+* **Products** : catalogue de \~50 000 produits avec noms et rayons.
+* **Aisles** : 134 rayons (ex : "légumes frais", "fromages emballés").
+* **Departments** : 21 départements (ex : "œufs laitiers", "boissons").
+* **Order\_products** : produits dans chaque commande et ordre d'ajout.
+
+*Source : Kaggle – Analyse du panier d'épicerie en ligne Instacart.*
+
+## 🧠 Méthodologie
+
+1. **EDA & nettoyage** (`data_and_finetuning_cohort.py`)
+
+   * Détection et traitement des NaN, doublons et typage.
+   * Création de variables : `order_dow_name`, totaux par client, indicateurs RFM.
+2. **Segmentation RFM**
+
+   * Standardisation des indicateurs.
+   * Détermination du nombre de clusters (méthode du coude).
+   * Application de KMeans.
+3. **Visualisations**
+
+   * Bar charts, heatmap temporelle, pairplot, vue 3D.
+4. **Exploration de texte**
+
+   * Nettoyage, tokenisation, suppression de stop words.
+   * Génération de WordCloud depuis un fichier texte.
+
+## 🏗️ Architecture de l'application
+
+```
+duda_cohortscore/
+├── app.py                          # Application Streamlit
+├── data_and_finetuning_cohort.py  # EDA, nettoyage & création de variables
+├── requirements.txt                # Dépendances Python
+├── data/
+│   ├── instacart_sample_1m.parquet # Échantillon de travail
+│   └── instacart_cleaned.csv       # Jeu nettoyé final
+└── README.md                       # Ce document
+```
+
+## ⚙️ Installation & Exécution
+
+Voir la section **Démo rapide** ci-dessus pour les commandes pas-à-pas.
+
+## 🙋 Auteurs
+
+* **Alexandre Cameron BORGES** – [LinkedIn](https://www.linkedin.com/in/alexandre-cameron-borges)
+* **Alioune DIOP** – [LinkedIn](https://www.linkedin.com/in/aliounediop)
+
+```
+```
+
+
+
