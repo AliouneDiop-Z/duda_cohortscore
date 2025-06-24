@@ -3,14 +3,16 @@
 
 Le **DUDA CohortScore** est le MVP d'une Webapp Streamlit d'analyse de cohortes, réalisé pour le DU Sorbonne Data Analytics 2024-2025 par **Alexandre Cameron BORGES** & **Alioune DIOP**. L'outil segmente la clientèle Instacart via l'analyse RFM (Récence, Fréquence, Montant), explore les habitudes d'achat et génère un WordCloud à partir d'un texte importé.
 
-## 📋 Table des matières
-1. [Objectif](#-objectifs)
-2. [Démo rapide](#-d%C3%A9mo-rapide)
-3. [Jeux de données](#-jeux-de-donn%C3%A9es)
-4. [Méthodologie](#-m%C3%A9thodologie)
-5. [Architecture de l'application](#-architecture-de-lapplication)
-6. [Installation & Exécution](#-installation--ex%C3%A9cution)
-7. [Auteurs](#-auteurs)
+### 📋 Table des matières
+
+1. [Objectifs](#✨-objectifs)  
+2. [Démo rapide](#🚀-démo-rapide)  
+3. [Jeux de données](#📊-jeux-de-données)  
+4. [Méthodologie](#🧠-méthodologie)  
+5. [Architecture de l'application](#🏗️-architecture-de-lapplication)  
+6. [Installation & Exécution](#⚙️-installation--exécution)  
+7. [Auteurs](#🙋-auteurs)  
+
 
 ## ✨ Objectifs
 - Segmenter les clients selon le modèle RFM (Récence, Fréquence, Montant).
